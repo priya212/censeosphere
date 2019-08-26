@@ -1,0 +1,17 @@
+ .fixed-header
+{
+  color: white;
+  background-color: lightblue;
+} 
+
+
+.example-card
+{
+  width: 500px;
+  display: inline-block;
+  margin-top: 150px;
+}
+.loginbutton{
+  background-color: #17a2b8;
+  color: white;
+}

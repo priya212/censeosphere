@@ -1,0 +1,49 @@
+#card {
+    padding: 25px 15px;
+    text-align: center;
+    font-size: 12px;
+    width: 300px;
+    overflow: hidden;
+    border: none;
+    border-radius: 9px;
+    /* box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 2.5); */
+    margin: 0 auto;
+    display: inline-block;
+    left: 230%;
+    margin-left: -230px;
+    -webkit-animation-name: scale-up-center;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: scale-up-center;
+    animation-duration: 1s;
+    background-color: white;
+    box-shadow: 2px 1.5px 3px 2px rgba(69, 22, 106, 1);
+}
+
+#productimages {
+    height: 200px;
+    width: 200px;
+}
+
+@-webkit-keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(.5);
+        transform: scale(.5)
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+@keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(.5);
+        transform: scale(.5)
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}

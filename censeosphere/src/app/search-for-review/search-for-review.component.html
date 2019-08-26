@@ -1,0 +1,210 @@
+<!-- header -->
+<div class="image">
+
+    <div class="containerbody">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <img id="logo" src="../../assets/img/logo14.png" (click)="logoclick()">
+            <div class="dropdown">
+                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span> <i class='fas fa-user-circle'></i></span> My Account <strong class="caret"></strong>
+                </a>
+                <ul id="drop" class="dropdown-menu">
+                    <li><button class="dropdown-item" (click)="update()"><span><i class="fa fa-refresh"></i></span> Update
+              profile</button></li>
+                    <li><button class="dropdown-item" (click)="lpage()"><span><i class="fa fa-power-off"></i></span> Log
+              out</button></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- end header -->
+    <div class="container">
+
+
+
+        <section class="mainheader">
+            <h2 id="searchheading">Product Details</h2>
+        </section>
+        <hr class="shine">
+
+        <!-- card start  -->
+        <div class="flex-container">
+            <div class="left">
+                <div class="thumb-wrapper">
+                    <div class="img-box">
+                        <img src="./assets/img/{{products.image}}" id="productimage" class="img-responsive img-fluid" alt="Image not found">
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="thumb-content">
+                    <h3><b>{{products.productName}}</b></h3>
+
+                    <div class="rate">
+                        <h4 class="info">{{products.rating}}&#9733;</h4>
+                    </div>
+
+                    <ng-template #t let-fill="fill">
+                        <span class="star" [class.full]="fill === 100">
+                        <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                        </span>
+                    </ng-template>
+
+                    <ngb-rating [startTemplate]="t" rate="{{products.rating}}"></ngb-rating>
+                    <h5 class="item-price">{{products.price|currency:"&#8377;"}}</h5>
+                    <h5 class="info"><b>Specification : </b>{{products.specifications}}</h5>
+                    <h5 class="info"><b>Description : </b>{{products.description}}</h5>
+
+                </div>
+                <div>
+                    <button class="w3-btn w3-round-xxlarge" id="mainbtn" type="button" (click)="wreview()" name="write a review">Write A Review</button>
+                </div>
+            </div>
+
+        </div>
+        <!--product card end-->
+        <br>
+        <br>
+
+        <section class="mainheader1">
+            <h2 id="searchheading1">Reviews</h2>
+        </section>
+        <hr class="shine">
+
+        <div *ngFor="let review of reviewdetails ">
+
+            <div class="flex-container1">
+                <div class="w3-container w3-purple">
+                </div>
+                <div id="div2" class="row d-outline-block">
+
+                    <div class="col-md-4">
+                        <div class="card-img-top">
+                            <img alt="nikon" id="reviewimg" src="./assets/img/{{review.image}}"><br>
+                        </div>
+
+                        <h4>{{review.reviewerEmail}}</h4><br>
+                    </div>
+
+                    <div class="col-md-8">
+                        <h4 class="reviewheadingg"><b>{{review.reviewTitle}}</b></h4>
+                        <p id="descrip">{{review.reviewDescription}}</p>
+                        <div>
+
+                            <strong id="ques">Was this helpful?</strong> &nbsp;
+                            <button class="btn btn-light" id="up" type="button" (click)="yes(review.reviewerEmail)" name="useful"><i
+                  class="fas fa-thumbs-up"> YES</i></button> &nbsp;
+                            <button class="btn btn-light" id="down" type="button" (click)="no(review.reviewerEmail)" name="useful"><i
+                  class="fas fa-thumbs-down">NO</i></button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div><br>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small mdb-color pt-3 bg-dark footer-dark">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left" id="footerone">
+            <!-- Footer links -->
+            <div class="row text-center text-md-left mt-3 pb-3">
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 mx-auto mt-3">
+                    <ul class="list-unstyled lead">
+                        <li>
+                            <h5><strong>About us</strong></h5>
+                        </li>
+                        <li>
+                            <a href="#"><strong> Vision & Goals </strong></a>
+                        </li>
+                        <li>
+                            <a href="#"><strong> Company </strong></a>
+                        </li>
+                        <!-- <li>
+            <a href="#"><strong> Blog </strong></a>
+          </li> -->
+                        <!-- <li>
+            <a href="#"><strong> Careers </strong></a>
+          </li> -->
+                    </ul>
+                </div>
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3  mx-auto mt-3">
+                    <ul class="list-unstyled lead">
+                        <li>
+                            <h5><strong>Contact us</strong></h5>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-map-marker"></i>&nbsp;<Strong>Location</Strong></a>
+                        </li>
+                        <!-- <li>
+            <a href="#"><i class="fa fa-phone"></i>&nbsp;<Strong>9874563129</Strong></a>
+          </li> -->
+                        <li>
+                            <a href="#"> <i class="fa fa-envelope"></i>&nbsp;
+                                <Strong>niitstkrt@gmail.com</Strong>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none">
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <ul class="list-unstyled lead">
+                        <li>
+                            <h5><strong>Insights</strong></h5>
+                        </li>
+                        <li>
+                            <a href="#"><Strong>Privacy policy</Strong></a>
+                        </li>
+                        <!-- <li>
+            <a href="#"><Strong>Terms & Conditions </Strong></a>
+          </li> -->
+                        <!-- <li>
+            <a href="#"><Strong>FAQs</Strong></a>
+          </li> -->
+                        <li>
+                            <a href="#"><Strong>Support</Strong></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Footer links -->
+            <hr class="side">
+            <!-- Grid row -->
+            <div class="row d-flex align-items-center">
+                <!-- Grid column -->
+                <div class="col-md-7 col-lg-8">
+                    <div class="col-md-12" id="iconss">
+                        <ul class="social-network social-circle" id="ulist">
+                            <li><a id="faceb" href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
+                            <li></li>
+                            <li><a id="twit" href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
+                            <li></li>
+                            <li><a id="insta" href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
+                            <li></li>
+                            <li><a id="link" href="#"><i class="fab fa-linkedin-in" id="linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <!--Copyright-->
+
+                    <p class="text-center text-md-right" id="paragraph">Copyright © All Rights Reserved by
+                        <strong>Censeosphere</strong>
+                    </p>
+                </div>
+            </div>
+            <!-- Grid column -->
+        </div>
+    </footer>
+    <!-- end footer -->
+</div>
